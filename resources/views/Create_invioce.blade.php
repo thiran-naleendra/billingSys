@@ -39,14 +39,14 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ route('session') }}" method="POST">
+                                <form action="{{ route('session') }}" method="POST" class="needs-validation" novalidate >
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Item Name</label>
-                                                <select name="item_id" id="searchByNameDropdown" class="form-control">
+                                                <select name="item_id" id="searchByNameDropdown" class="form-control" required>
                                                     <option value=""><-- Select --></option>
                                                     @foreach ($item as $item)
                                                         <option value="{{ $item->id }}"
@@ -60,7 +60,7 @@
                                                 <div class="form-group">
                                                     <label>price</label>
                                                     <input type="text" name="item_price" id="item_price"
-                                                        class="form-control" placeholder="">
+                                                        class="form-control" placeholder="" required>
                                                 </div>
                                             </div>
 
@@ -69,11 +69,11 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Qty</label>
-                                                <input type="number" name="qty" id="qty" class="form-control">
+                                                <input type="number" name="qty" id="qty" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <input type="text" name="item_description" id="item_description" class="form-control">
+                                                <input type="text" name="item_description" id="item_description" class="form-control" required>
                                             </div>
                                         </div>
 
@@ -164,6 +164,28 @@
                     $('#item_description').val(selectedItemDescription);
                 });
             });
+        </script>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
         </script>
 
 

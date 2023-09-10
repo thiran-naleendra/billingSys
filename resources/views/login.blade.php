@@ -87,6 +87,10 @@
             
             @csrf
             
+            <div class="form-outline mb-4">
+              
+              <h1>LogIn</h1>
+            </div>
   
             <!-- Email input -->
             <div class="form-outline mb-4">

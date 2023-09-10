@@ -11,6 +11,12 @@
     </a>
   </li>
   <li class="nav-item">
+    <a href="{{route('add_customer')}}" class="nav-link">
+      <i class="nav-icon fas fa-user"></i>
+      <p>Add Customer</p>
+    </a>
+  </li>
+  <li class="nav-item">
     <a href="{{route('create_invoice')}}" class="nav-link">
       <i class="nav-icon fas fa-user"></i>
       <p>Create Invoice/Bill</p>

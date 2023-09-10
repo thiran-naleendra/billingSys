@@ -10,9 +10,8 @@ class ItemController extends Controller
     public function index()
     {
         $item = Item::get();
-        
-         return view('ItemList')->with('item', $item );
-        
+
+        return view('ItemList')->with('item', $item);
     }
 
     public function itemstore(Request $request)
@@ -29,5 +28,11 @@ class ItemController extends Controller
             ]
         );
         return back()->with('success', 'Successfully placed reservation!');
+    }
+
+    public function edit($id)
+    {
+        $item = Item::find($id); // Replace 'Item' with your actual model name
+        return view('items.edit', compact('item'));
     }
 }
