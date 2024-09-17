@@ -37,7 +37,7 @@
 
                         <div class="card card-blue">
                             <div class="card-header">
-                                <h3 class="card-title">Add Items</h3>
+                                <h3 class="card-title">Item List</h3>
                             </div>
                             <br>
                             <table id="dataTable" class="display" style="width:100%">
@@ -57,11 +57,40 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->item_name }}</td>
-                                            <td>{{ $item->item_category }}</td>
+                                            <td>
+                                                @php
+                                                    $item_category = '';
+                                                    
+                                                    switch ($item->item_category) {
+                                                        case 0:
+                                                            $item_category = 'Camera';
+                                                            break;
+                                                        case 1:
+                                                            $item_category = 'DVR';
+                                                            break;
+                                                        case 2:
+                                                            $item_category = 'Cable';
+                                                            break;
+                                                        case 3:
+                                                            $item_category = 'Adaptors';
+                                                            break;
+                                                        case 2:
+                                                            $item_category = 'Others';
+                                                            break;
+                                                    }
+                                                    echo $item_category;
+                                                @endphp
+                                            </td>
                                             <td>{{ $item->item_description }}</td>
                                             <th>{{ $item->serial_no }}</th>
                                             <td>Rs.{{ $item->item_price }}</td>
-                                            <td><button class="btn btn-success ">Edit</button> &ensp;<button class="btn btn-danger">Delete</button></td>
+                                            <td>
+                                                <a href="{{ route('edit-item', $item->id) }}" class="btn btn-success">Edit</a>
+                                                <form action="{{ route('item.delete', $item->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form></td>
                                         </tr>
                                     @endforeach
                             </table>

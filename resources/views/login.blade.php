@@ -82,28 +82,30 @@
           <img src="{{url('img/LG.png')}}"
             class="img-fluid" alt="Sample image">
         </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" >
           <form method="POST" action="{{ route('login') }}">
             
             @csrf
             
             <div class="form-outline mb-4">
-              
-              <h1>LogIn</h1>
+              <img src="{{url('img/SC1.png')}}" alt="" width="50" height="50">
+              <h1> <strong>LogIn</strong> </h1>
             </div>
   
             <!-- Email input -->
             <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example3">Name</label>
               <input name="name"  id="form3Example3" class="form-control form-control-lg"
                 placeholder="Enter a valid Name" required />
-              <label class="form-label" for="form3Example3">Name</label>
+              
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
+              <label name="password" class="form-label" for="form3Example4">Password</label>
               <input type="password" name="password" id="password" class="form-control form-control-lg"
                 placeholder="Enter password" required />
-              <label name="password" class="form-label" for="form3Example4">Password</label>
+              
             </div>
   
             <div class="d-flex justify-content-between align-items-center">

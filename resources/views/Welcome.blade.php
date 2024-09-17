@@ -103,7 +103,7 @@
 
                 </section>
                 <!-- /.content -->
-                <div class="card card-blue">
+                {{-- <div class="card card-blue">
                     <div class="card-header">
                         <h3 class="card-title">Add Items</h3>
                     </div>
@@ -158,7 +158,7 @@
                                 </tr>
                             @endforeach
                     </table>
-                </div>
+                </div> --}}
             </div>
 
         </div>

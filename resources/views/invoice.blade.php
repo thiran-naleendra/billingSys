@@ -211,11 +211,11 @@
                                         <div class="invoice-to">
                                             <small>to</small>
                                             <address class="m-t-5 m-b-5">
-                                                <strong class="text-inverse">Company Name</strong><br>
-                                                Street Address<br>
-                                                City, Zip Code<br>
-                                                Phone: (123) 456-7890<br>
-                                                Fax: (123) 456-7890
+                                                
+                                                @if (session()->has('selectedCustomer'))
+                                                <strong class="text-inverse"> {{ session('selectedCustomer.name') }}</strong> <br>
+                                                    {!! nl2br(e(session('selectedCustomer.address'))) !!}
+                                                @endif
                                             </address>
                                         </div>
                                         <div class="invoice-date">
@@ -256,8 +256,9 @@
                                                                 ?>
                                                                 <td>
                                                                     <span
-                                                                        class="text-inverse">{{ $selectedItem['item_name'] }}</span> <br>
-                                                                        <small>{{ $selectedItem['item_description'] }}</small>
+                                                                        class="text-inverse">{{ $selectedItem['item_name'] }}</span>
+                                                                    <br>
+                                                                    <small>{{ $selectedItem['item_description'] }}</small>
                                                                 </td>
                                                                 <td class="text-center">{{ $selectedItem['qty'] }}</td>
 
